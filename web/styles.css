@@ -4,7 +4,8 @@ body {
     font-family: Times New Roman, sans-serif;
 }
 h1 {
-    background-color: #250902 ;
+    background-image:url(https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3dXJ3eXA3b2NndDUyb21zOTh4YW5mdTNldmtuaWJxYnB5em5mZzAwOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/WtJGl2skkKeV6zyNgG/giphy.gif) ;
+    background-size: cover;
     color: #eff1f3 ;
     padding: 20px;
     text-shadow: 1px 1px 10px red;
@@ -15,6 +16,7 @@ h1 {
     justify-content: center;
     flex-wrap: wrap;
     border-radius: 2vw;
+    font-size: 250%;
 }
 h2 {
     background-color: #250902 ;
@@ -22,21 +24,21 @@ h2 {
     padding: 20px;
     text-shadow: 1px 1px 10px red;
     border-width: 3px ;
+    width: fit-content;
     border-style: solid ;
-    border-color: #eff1f3 ;    
+    border-color: #eff1f3 ; 
 }
 nav {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  text-shadow: 1px 1px 10px red;
   border-width: 3px ;
   border-style: solid ;
   border-color: #eff1f3 ;
   border-radius: 2em;
   margin-left: 60px;
   margin-right: 60px;
-  margin-top: 8px; 
+  margin-top: 8px;
 }
 a {
   color: red;
@@ -61,11 +63,15 @@ section {
   margin-top: 20px; 
 }
 footer {
+      background-image:url(https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNThuZDJxYjF5dnQ2ZjlnYmhwY3Z6cjFsOWJudWU4endybXRhc3cxMiZlcD12MV9naWZzX3NlYXJjaCZjdD1n/Y5wlazC8lSVuU/giphy.gif) ;
+    background-size: contain;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   text-shadow: 1px 1px 10px red;
-  font-size: 110%;
+  font-size: 170%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 p {
   border-width: 2px ;
@@ -87,4 +93,6 @@ b{
     font-size: 130%;
     margin-left: 70px;
     margin-right: 70px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
