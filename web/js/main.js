@@ -1,3 +1,4 @@
+//Activity 04: Supply approval
 const waterUnits = 18;
 const waterSurvivors = 6;
 const waterPerSurvivor = 2;
