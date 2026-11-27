@@ -80,7 +80,7 @@ function approveSupply(stock, requestedQuantity, sourceInfected) {
         };
     }
 
-    // Approve request and subtract supplies
+    // Approve request and subtract supplies//
     const remainingStock = stock - requestedQuantity;
 
     return {
@@ -89,7 +89,6 @@ function approveSupply(stock, requestedQuantity, sourceInfected) {
         remainingStock: remainingStock
     };
 }
-
 
 // Display supply approval//
 console.log("===== SUPPLY APPROVAL SYSTEM =====");
@@ -104,5 +103,3 @@ console.log(supplyResult.message);
 console.log("Original stock:", stock);
 console.log("Requested quantity:", requestedQuantity);
 console.log("Remaining stock:", supplyResult.remainingStock);
-
-
