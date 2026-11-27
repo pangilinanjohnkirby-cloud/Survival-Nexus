@@ -29,3 +29,85 @@ console.log("Number of survivors:", foodSurvivors);
 console.log("Daily demand:", dailyFoodDemand);
 console.log("Complete days:", foodCompleteDays);
 console.log("Leftover food:", foodLeftover);
+
+// ACTIVITY 04 - SUPPLY APPROVAL//
+let stock = 5;
+let requestedQuantity = 2;
+let sourceInfected = false;
+
+
+function approveSupply(stock, requestedQuantity, sourceInfected) {
+    if (
+        !Number.isSafeInteger(stock) ||
+        stock < 0 ||
+        stock > 1000000
+    ) {
+        return {
+            accepted: false,
+            message: "Rejected: Invalid stock value.",
+            remainingStock: stock
+        };
+    }
+    if (
+        !Number.isSafeInteger(requestedQuantity) ||
+        requestedQuantity < 1 ||
+        requestedQuantity > 1000000
+    ) {
+        return {
+            accepted: false,
+            message: "Rejected: Invalid requested quantity.",
+            remainingStock: stock
+        };
+    }
+    if (typeof sourceInfected !== "boolean") {
+        return {
+            accepted: false,
+            message: "Rejected: Invalid infection status.",
+            remainingStock: stock
+        };
+    }
+    if (sourceInfected === true) {
+        return {
+            accepted: false,
+            message: "Rejected: Source is infected.",
+            remainingStock: stock
+        };
+    }
+    if (requestedQuantity > stock) {
+        return {
+            accepted: false,
+            message: "Rejected: Insufficient stock.",
+            remainingStock: stock
+        };
+    }
+
+
+    // Approve request and subtract supplies//
+    const remainingStock = stock - requestedQuantity;
+
+
+    return {
+        accepted: true,
+        message: "Approved: Supplies successfully transferred.",
+        remainingStock: remainingStock
+    };
+}
+
+
+// Display supply approval//
+console.log("===== SUPPLY APPROVAL SYSTEM =====");
+
+
+const supplyResult = approveSupply(
+    stock,
+    requestedQuantity,
+    sourceInfected
+);
+
+
+console.log(supplyResult.message);
+console.log("Original stock:", stock);
+console.log("Requested quantity:", requestedQuantity);
+console.log("Remaining stock:", supplyResult.remainingStock);
+
+
