@@ -1,10 +1,11 @@
+import { daysOfSupplies } from "./domain.js";
 // activity-3_WATER_SUPPLIES //
 const waterUnits = 18;
 const waterSurvivors = 6;
 const waterPerSurvivor = 2;
 // COMPUTATION OF WATER//
 const dailyWaterDemand = waterSurvivors * waterPerSurvivor;
-const waterCompleteDays = Math.floor(waterUnits / dailyWaterDemand);
+const waterCompleteDays = daysOfSupplies(waterUnits, dailyWaterDemand);
 const waterLeftover = waterUnits - (waterCompleteDays * dailyWaterDemand);
 // WHAT WILL APPEAR ON WATER //
 console.log("==== WATER SUPPLY ====");
@@ -20,7 +21,7 @@ const foodSurvivors = 4;
 const foodPerSurvivor = 2;
 // COMPUTATION OF FOOD //
 const dailyFoodDemand = foodSurvivors * foodPerSurvivor;
-const foodCompleteDays = Math.floor(foodUnits / dailyFoodDemand);
+const foodCompleteDays = daysOfSupplies(foodUnits, dailyFoodDemand);
 const foodLeftover = foodUnits - (foodCompleteDays * dailyFoodDemand);
 // WHAT WILL APPEAR ON FOOD //
 console.log("==== FOOD SUPPLY ====");
@@ -115,8 +116,8 @@ const MAX_SHELTER_STOCK = 1000000;
 
 function shelterReport(counts, dailyRequirement) {
     // Step 1: validate the daily requirement
-    if (!Number.isSafeInteger(dailyRequirement) || dailyRequirement < 1) {
-        return { valid: false, message: "Rejected: Daily requirement must be a positive safe integer." };
+    if (!Number.isSafeInteger(dailyRequirement) || dailyRequirement < 1 || dailyRequirement > 1000000) {
+    return { valid: false, message: "Rejected: Daily requirement must be a positive safe integer." };
     }
 
     if (!Array.isArray(counts)) {
@@ -140,7 +141,7 @@ function shelterReport(counts, dailyRequirement) {
     let shortCoverageCount = 0;
 
     for (const count of counts) {
-        const days = Math.floor(count / dailyRequirement);
+        const days = daysOfSupplies(count, dailyRequirement);
         coverage.push(days);
         totalWater += count;
         if (days < 2) {
